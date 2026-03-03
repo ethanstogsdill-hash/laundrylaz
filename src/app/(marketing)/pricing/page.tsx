@@ -222,6 +222,18 @@ export default function PricingPage() {
                   </div>
                 </div>
 
+                {/* Referral */}
+                <div className="rounded-lg border border-brand-ocean/30 bg-brand-ocean/5 p-4">
+                  <p className="text-sm font-semibold text-foreground">
+                    Referral Program
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Refer a friend and you both get{" "}
+                    {formatCents(PRICING.referralCreditCents)} credit toward your
+                    next order.
+                  </p>
+                </div>
+
                 <div className="mt-auto pt-4">
                   <Button asChild className="w-full" size="lg">
                     <Link href="/signup">
@@ -241,10 +253,10 @@ export default function PricingPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              Estimate Your Drop-off Cost
+              Estimate Your Cost
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Use the calculator to see how much your drop-off wash & fold order would cost.
+              Choose your service type and see how much it would cost.
             </p>
           </div>
           <div className="mt-10 flex justify-center">
