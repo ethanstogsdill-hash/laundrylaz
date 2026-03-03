@@ -71,8 +71,8 @@ const features = [
 
 const amenities = [
   { icon: Wifi, label: "Free WiFi" },
-  { icon: Coffee, label: "Fresh Cafe" },
   { icon: Coffee, label: "Full Cafe" },
+  { icon: Truck, label: "Pickup & Delivery" },
   { icon: Car, label: "Free Parking & RV Friendly" },
 ];
 
@@ -532,7 +532,7 @@ export default function LandingPage() {
             {/* Map */}
             <div className="overflow-hidden rounded-xl border shadow-sm">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.8!2d-82.37!3d29.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8a3ad297a9c89%3A0x5c7e68b33ff00e3e!2sFresh%20Laundry%20%26%20Cafe!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                src={BRAND.googleMapsEmbed}
                 width="100%"
                 height="400"
                 style={{ border: 0 }}

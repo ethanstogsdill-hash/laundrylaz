@@ -16,9 +16,9 @@ export const BRAND = {
   owner: "Maritza Padgett",
   openedYear: 2022,
   googleMapsEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.5!2d-82.35!3d29.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8a3b0e14a1b1f%3A0x1234567890abcdef!2sFresh%20Laundry%20%26%20Cafe!5e0!3m2!1sen!2sus!4v1700000000000",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1734!2d-82.3406!3d29.6171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e8a3ad297a9c89%3A0x5c7e68b33ff00e3e!2sFresh%20Laundry%20%26%20Cafe!5e0!3m2!1sen!2sus!4v1700000000000",
   googleMapsUrl:
-    "https://www.google.com/maps/place/Fresh+Laundry+%26+Cafe/@29.6316,-82.3705,17z",
+    "https://www.google.com/maps/place/Fresh+Laundry+%26+Cafe/@29.6171,-82.3406,17z",
   social: {
     instagram: "https://www.instagram.com/freshlaundryandcafe/",
     yelp: "https://www.yelp.com/biz/fresh-laundry-and-cafe-no-title",
