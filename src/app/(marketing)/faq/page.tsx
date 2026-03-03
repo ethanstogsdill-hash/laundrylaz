@@ -10,22 +10,22 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: "What areas do you serve?",
-    answer: `We currently serve ${BRAND.location} and the surrounding areas, including the University of Florida campus, Midtown, Downtown, Butler Plaza, and most apartment complexes within a 10-mile radius of UF. Not sure if you're covered? Sign up and enter your address — we'll let you know instantly.`,
+    question: "Where are you located?",
+    answer: `We're at 3830 SW 13th St in ${BRAND.location}, convenient for UF students, Midtown, Downtown, and Butler Plaza. Open 7 days a week, 7 AM to 10 PM.`,
   },
   {
     question: "How much does it cost?",
-    answer: `Our pricing is simple: ${formatCents(PRICING.baseFeeCents)} pickup fee plus ${formatCents(PRICING.perLbRateCents)} per pound, with a ${PRICING.minimumWeightLbs} lb minimum. That includes pickup, washing, drying, folding, and delivery. No hidden fees.`,
+    answer: `Our drop-off wash & fold pricing is simple: ${formatCents(PRICING.baseFeeCents)} drop-off fee plus ${formatCents(PRICING.perLbRateCents)} per pound, with a ${PRICING.minimumWeightLbs} lb minimum. That includes washing, drying, and folding. No hidden fees. Or save money and use our self-service machines!`,
   },
   {
     question: "How long does turnaround take?",
     answer:
-      "We offer 24-hour turnaround on most orders. Once we pick up your laundry, you can expect it back clean, folded, and delivered by the same time the next day. We'll notify you at every step.",
+      "We offer 24-hour turnaround on most drop-off orders. Once you leave your laundry with us, you can expect it back clean and folded by the same time the next day. We'll notify you when it's ready.",
   },
   {
-    question: "How does pickup work?",
+    question: "How does drop-off work?",
     answer:
-      "After you schedule a pickup through the app, one of our team members will arrive during your selected window. Just leave your laundry bag at your door (or hand it off in person). We'll weigh it, confirm the order, and take it from there.",
+      "Just bring your laundry to our location at 3830 SW 13th St during business hours. We'll weigh it, confirm the order, and take it from there. You can grab a coffee in our cafe while you wait, or come back later to pick it up.",
   },
   {
     question: "What items can be washed?",
@@ -35,7 +35,7 @@ const faqs = [
   {
     question: "How do I pay?",
     answer:
-      "Payment is handled securely through the app. You'll add a card on file and be charged after your laundry is weighed at pickup. We accept all major credit and debit cards.",
+      "We accept all major credit and debit cards. You can pay at the counter when you drop off or pick up your laundry.",
   },
   {
     question: "How does the referral program work?",
@@ -46,9 +46,9 @@ const faqs = [
     answer: `We take every order seriously. If an item is damaged, lost, or not washed to your satisfaction, contact us within 48 hours and we'll make it right — either with a rewash or a credit. Reach out at ${BRAND.email} or ${BRAND.phone}.`,
   },
   {
-    question: "Can I cancel or reschedule a pickup?",
+    question: "Can I do my own laundry there?",
     answer:
-      "Yes! You can cancel or reschedule a pickup at any time before our team member is on the way. Just open the app and update your order. There's no fee for cancellations.",
+      "Yes! We have over 100 self-service washers and dryers available. It's the more affordable option — just come in, load a machine, and relax in our cafe while your clothes get clean.",
   },
   {
     question: "Do I need to provide my own laundry bag?",
@@ -61,7 +61,7 @@ export default function FAQPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-b from-cyan-50 to-white py-16 sm:py-24">
+      <section className="bg-gradient-to-b from-blue-50 to-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Frequently Asked Questions

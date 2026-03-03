@@ -3,7 +3,6 @@ import Image from "next/image";
 import {
   CalendarDays,
   Shirt,
-  Truck,
   Clock,
   Coffee,
   Leaf,
@@ -25,31 +24,31 @@ import { PricingCalculator } from "@/components/features/pricing-calculator";
 
 const steps = [
   {
-    icon: CalendarDays,
-    title: "Schedule Online",
+    icon: Shirt,
+    title: "Drop It Off",
     description:
-      "Pick a date and time that works for you. We offer flexible pickup windows 7 days a week across Gainesville.",
+      "Bring your laundry to our 6,000 sq ft location. We're open 7 days a week, 7 AM to 10 PM.",
   },
   {
-    icon: Shirt,
+    icon: CalendarDays,
     title: "We Wash & Fold",
     description:
-      "We pick up your laundry, wash it in our commercial-grade machines, and carefully fold everything.",
+      "Our team washes it in commercial-grade machines, carefully folds everything, and has it ready for you.",
   },
   {
-    icon: Truck,
-    title: "Delivered Fresh",
+    icon: Coffee,
+    title: "Grab a Coffee",
     description:
-      "Fresh, clean laundry delivered right back to your door — usually within 24 hours.",
+      "Enjoy our full cafe while you wait, or come back later to pick up your fresh, clean laundry.",
   },
 ];
 
 const features = [
   {
-    icon: Truck,
-    title: "Pickup & Delivery",
+    icon: Shirt,
+    title: "Drop-off Wash & Fold",
     description:
-      "Too busy to stop by? We come to you, wash & fold everything, and deliver it back fresh.",
+      "Drop off your laundry and we'll wash, dry, and fold it for you. Just come back and pick it up!",
   },
   {
     icon: Coffee,
@@ -82,7 +81,7 @@ const testimonials = [
   {
     name: "Sarah M.",
     context: "UF Student",
-    text: "The pickup and delivery service is a game-changer. I used to waste my whole Sunday doing laundry. Now I just schedule online and focus on studying. Clothes come back perfectly folded!",
+    text: "The drop-off wash & fold service is a game-changer. I used to waste my whole Sunday doing laundry. Now I just drop it off and focus on studying. Clothes come back perfectly folded!",
     rating: 5,
   },
   {
@@ -105,7 +104,7 @@ export default function LandingPage() {
       {/* ─── Hero Section ─── */}
       <section className="relative overflow-hidden">
         {/* Background image overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/90 via-cyan-800/85 to-teal-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f2460]/95 via-[#1B3B8C]/90 to-[#0f2460]/95" />
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -118,6 +117,14 @@ export default function LandingPage() {
 
         <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
           <div className="mx-auto max-w-3xl text-center">
+            <Image
+              src="/logo.jpg"
+              alt="Fresh Laundry & Cafe"
+              width={180}
+              height={180}
+              className="mx-auto mb-8 rounded-full shadow-2xl border-4 border-white/20"
+              priority
+            />
             <Badge
               variant="secondary"
               className="mb-6 bg-white/15 text-white border-white/20 backdrop-blur-sm"
@@ -127,7 +134,7 @@ export default function LandingPage() {
             </Badge>
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Wash. Sip.{" "}
-              <span className="text-brand-teal">Relax.</span>
+              <span className="text-brand-amber">Relax.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80 sm:text-xl">
               {BRAND.description}
@@ -136,10 +143,10 @@ export default function LandingPage() {
               <Button
                 size="lg"
                 asChild
-                className="w-full sm:w-auto bg-brand-teal hover:bg-brand-teal/90 text-white"
+                className="w-full sm:w-auto bg-brand-amber hover:bg-brand-amber/90 text-white"
               >
                 <Link href="/signup">
-                  Schedule a Pickup
+                  Get Started
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -236,15 +243,15 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ─── How Pickup & Delivery Works ─── */}
+      {/* ─── How It Works ─── */}
       <section className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Pickup & Delivery Made Easy
+              How Drop-off Works
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Too busy to come in? We&apos;ll come to you.
+              Let us do the work — just drop it off and pick it up.
             </p>
           </div>
 
@@ -292,13 +299,13 @@ export default function LandingPage() {
                     </span>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    + {formatCents(PRICING.baseFeeCents)} pickup fee
+                    + {formatCents(PRICING.baseFeeCents)} drop-off fee
                   </p>
                 </div>
 
                 <div className="space-y-3">
                   {[
-                    "Pickup & delivery included",
+                    "Drop-off wash & fold service",
                     "Wash, dry & fold by hand",
                     "Commercial-grade machines",
                     "24-hour turnaround",
@@ -309,7 +316,7 @@ export default function LandingPage() {
                       key={feature}
                       className="flex items-center gap-3 text-sm"
                     >
-                      <CheckCircle className="size-4 shrink-0 text-brand-teal" />
+                      <CheckCircle className="size-4 shrink-0 text-brand-amber" />
                       <span>{feature}</span>
                     </div>
                   ))}
@@ -434,7 +441,7 @@ export default function LandingPage() {
               Find Us
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Visit us in person or schedule a pickup online
+              Visit us in person — self-service or drop-off
             </p>
           </div>
 
@@ -490,7 +497,7 @@ export default function LandingPage() {
                       <div>
                         <p className="font-medium">Services</p>
                         <p className="text-muted-foreground">
-                          Self-service laundry, wash & fold, pickup & delivery,
+                          Self-service laundry, drop-off wash & fold,
                           full cafe
                         </p>
                       </div>
@@ -547,7 +554,7 @@ export default function LandingPage() {
 
       {/* ─── Final CTA ─── */}
       <section className="relative overflow-hidden py-20 sm:py-28">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-900 to-teal-800" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f2460] to-[#1B3B8C]" />
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -562,8 +569,8 @@ export default function LandingPage() {
             Ready to skip laundry day?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
-            Visit us at 3830 SW 13th St or schedule a pickup right from your
-            phone. Fresh laundry and a great cup of coffee are waiting.
+            Visit us at 3830 SW 13th St — do it yourself or drop it off and
+            we&apos;ll handle the rest. Fresh laundry and a great cup of coffee are waiting.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
@@ -572,7 +579,7 @@ export default function LandingPage() {
               className="bg-white text-brand-ocean hover:bg-white/90"
             >
               <Link href="/signup">
-                Schedule a Pickup
+                Get Started
                 <ArrowRight className="size-4" />
               </Link>
             </Button>

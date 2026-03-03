@@ -48,7 +48,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-b from-cyan-50 to-white py-16 sm:py-24">
+      <section className="bg-gradient-to-b from-blue-50 to-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             About {BRAND.name}
@@ -75,7 +75,7 @@ export default function AboutPage() {
               What started as a dream to merge two passions — great coffee and
               clean laundry — has grown into a 6,000-square-foot community hub
               in the heart of Gainesville. We offer self-service washers and
-              dryers, professional wash & fold, pickup & delivery, and a
+              dryers, professional drop-off wash & fold, and a
               fully-stocked cafe with fresh coffee, tea, smoothies, and locally
               sourced baked goods.
             </p>
@@ -84,7 +84,7 @@ export default function AboutPage() {
               across Gainesville. With over 230 reviews and a 4.6-star rating,
               we&apos;re committed to being the best laundry experience in
               town — and now we&apos;re making it even easier with online
-              scheduling and pickup & delivery.
+              scheduling and drop-off wash & fold.
             </p>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function AboutPage() {
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             To create a clean, comfortable space where doing laundry feels less
             like a chore and more like a break. Whether you visit in person or
-            schedule a pickup, we want your clothes — and your day — to feel
+            drop off your laundry, we want your clothes — and your day — to feel
             fresh.
           </p>
         </div>
@@ -154,9 +154,8 @@ export default function AboutPage() {
             </span>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
-            Pickup & delivery available across Gainesville — including UF
-            campus, Midtown, Downtown, Butler Plaza, and surrounding
-            neighborhoods.
+            Conveniently located for UF campus, Midtown, Downtown, Butler
+            Plaza, and surrounding neighborhoods.
           </p>
         </div>
       </section>
@@ -165,15 +164,15 @@ export default function AboutPage() {
       <section className="py-16 text-center sm:py-20">
         <div className="mx-auto max-w-2xl px-4">
           <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-            Come See Us — or Let Us Come to You
+            Come See Us
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Stop by for a coffee and a wash, or schedule a pickup from the
-            comfort of your couch.
+            Stop by for a coffee and a wash, or drop off your laundry and
+            let us handle the rest.
           </p>
           <Button asChild size="lg" className="mt-8">
             <Link href="/signup">
-              Schedule a Pickup
+              Get Started
               <ArrowRight className="size-4" />
             </Link>
           </Button>

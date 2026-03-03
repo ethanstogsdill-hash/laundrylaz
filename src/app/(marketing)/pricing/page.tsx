@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 };
 
 const included = [
-  "Free pickup from your door",
-  "Free delivery back to you",
+  "Drop off anytime we're open",
   "Wash, dry & fold",
   "Eco-friendly detergent",
   "Stain pre-treatment",
   "24-hour turnaround",
   "Clothes sorted by color",
   "Neatly folded & packaged",
+  "Ready for you to pick up",
 ];
 
 const faqs = [
@@ -28,15 +28,15 @@ const faqs = [
   },
   {
     q: "Are there any hidden fees?",
-    a: `No hidden fees at all. You pay the ${formatCents(PRICING.baseFeeCents)} pickup fee plus ${formatCents(PRICING.perLbRateCents)} per pound — that's it. Tax is included.`,
+    a: `No hidden fees at all. You pay the ${formatCents(PRICING.baseFeeCents)} drop-off fee plus ${formatCents(PRICING.perLbRateCents)} per pound — that's it. Tax is included.`,
   },
   {
     q: "How does the referral program work?",
     a: `When you refer a friend, you both get ${formatCents(PRICING.referralCreditCents)} in credit applied to your next order. There's no limit on how many friends you can refer!`,
   },
   {
-    q: "Can I tip my driver?",
-    a: "Absolutely! Tips are optional but always appreciated. You can add a tip through the app after your delivery is complete.",
+    q: "Can I tip the staff?",
+    a: "Absolutely! Tips are optional but always appreciated. You can tip our team when you pick up your order.",
   },
   {
     q: "Do you offer bulk or subscription discounts?",
@@ -48,7 +48,7 @@ export default function PricingPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-b from-cyan-50 to-white py-16 sm:py-24">
+      <section className="bg-gradient-to-b from-blue-50 to-white py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             Simple, Honest Pricing
@@ -83,11 +83,11 @@ export default function PricingPage() {
                       per order
                     </p>
                   </div>
-                  <div className="rounded-lg bg-brand-teal/5 p-4 text-center">
+                  <div className="rounded-lg bg-brand-amber/5 p-4 text-center">
                     <p className="text-sm font-medium text-muted-foreground">
                       {PRICING.perLbRateLabel}
                     </p>
-                    <p className="mt-1 text-3xl font-bold text-brand-teal">
+                    <p className="mt-1 text-3xl font-bold text-brand-amber">
                       {formatCents(PRICING.perLbRateCents)}
                     </p>
                     <p className="mt-1 text-xs text-muted-foreground">
@@ -98,7 +98,7 @@ export default function PricingPage() {
 
                 <p className="text-sm text-muted-foreground">
                   Minimum order of {PRICING.minimumWeightLbs} lbs. Your clothes
-                  are weighed at pickup and you&apos;re charged based on the
+                  are weighed at drop-off and you&apos;re charged based on the
                   actual weight.
                 </p>
 
@@ -110,7 +110,7 @@ export default function PricingPage() {
                   <div className="mt-3 grid gap-2 sm:grid-cols-2">
                     {included.map((item) => (
                       <div key={item} className="flex items-center gap-2 text-sm">
-                        <CheckCircle className="size-4 shrink-0 text-brand-teal" />
+                        <CheckCircle className="size-4 shrink-0 text-brand-amber" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -179,11 +179,11 @@ export default function PricingPage() {
             Ready to save time?
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Sign up in under a minute and schedule your first pickup today.
+            Sign up in under a minute and drop off your first load today.
           </p>
           <Button asChild size="lg" className="mt-8">
             <Link href="/signup">
-              Schedule Your First Pickup
+              Get Started
               <ArrowRight className="size-4" />
             </Link>
           </Button>

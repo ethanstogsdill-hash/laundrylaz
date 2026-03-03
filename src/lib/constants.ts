@@ -6,7 +6,7 @@ export const BRAND = {
   name: "Fresh Laundry & Cafe",
   tagline: "Wash. Sip. Relax.",
   description:
-    "Gainesville's favorite laundromat and cafe — all under one roof. Self-service, wash & fold, pickup & delivery, plus fresh coffee, smoothies, and local baked goods. 6,000 sq ft of clean, community-driven comfort.",
+    "Gainesville's favorite laundromat and cafe — all under one roof. Self-service or drop-off wash & fold, plus fresh coffee, smoothies, and local baked goods. 6,000 sq ft of clean, community-driven comfort.",
   location: "Gainesville, FL",
   address: "3830 SW 13th St, Gainesville, FL 32608",
   email: "hello@freshlaundryandcafe.com",
@@ -33,7 +33,7 @@ export const BRAND = {
 } as const;
 
 export const PRICING = {
-  baseFeeLabel: "Pickup Fee",
+  baseFeeLabel: "Drop-off Fee",
   baseFeeCents: 500, // $5.00
   perLbRateLabel: "Per Pound",
   perLbRateCents: 175, // $1.75/lb
