@@ -61,8 +61,8 @@ export async function schedulePickup(formData: FormData) {
       pickup_slot_id: pickupSlotId,
       special_instructions: specialInstructions || null,
       status: "pending",
-      base_fee_cents: PRICING.baseFeeCents,
-      per_lb_rate_cents: PRICING.perLbRateCents,
+      base_fee_cents: 0,
+      per_lb_rate_cents: PRICING.washFoldPerLbCents,
       payment_status: "pending",
     })
     .select("id")

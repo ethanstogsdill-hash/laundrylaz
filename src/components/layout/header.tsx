@@ -46,6 +46,9 @@ export function Header() {
 
         {/* Desktop auth buttons */}
         <div className="hidden items-center gap-2 md:flex">
+          <Button asChild className="bg-brand-amber hover:bg-brand-amber/90 text-white">
+            <a href={`tel:(352) 451-4358`}>Contact Us</a>
+          </Button>
           <Button variant="ghost" asChild>
             <Link href="/login">Login</Link>
           </Button>
@@ -80,6 +83,11 @@ export function Header() {
                 </SheetClose>
               ))}
               <div className="my-3 border-t" />
+              <SheetClose asChild>
+                <Button asChild className="bg-brand-amber hover:bg-brand-amber/90 text-white">
+                  <a href={`tel:(352) 451-4358`}>Contact Us</a>
+                </Button>
+              </SheetClose>
               <SheetClose asChild>
                 <Link
                   href="/login"

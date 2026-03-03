@@ -411,26 +411,19 @@ export default function SchedulePickupPage() {
                   <div className="space-y-1 text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">
-                        {PRICING.baseFeeLabel}
-                      </span>
-                      <span>{formatCents(PRICING.baseFeeCents)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">
-                        {PRICING.perLbRateLabel}
+                        Per Pound
                       </span>
                       <span>
-                        {formatCents(PRICING.perLbRateCents)}/lb
+                        {formatCents(PRICING.washFoldPerLbCents)}/lb
                       </span>
                     </div>
                     <div className="flex justify-between text-xs text-muted-foreground">
                       <span>Minimum weight</span>
-                      <span>{PRICING.minimumWeightLbs} lbs</span>
+                      <span>{PRICING.washFoldMinLbs} lbs</span>
                     </div>
                     <hr className="my-2" />
                     <p className="text-xs text-muted-foreground">
-                      Final total calculated after weighing. Payment collected
-                      upon delivery.
+                      Final total calculated after weighing.
                     </p>
                   </div>
                 </div>

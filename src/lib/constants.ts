@@ -6,7 +6,7 @@ export const BRAND = {
   name: "Fresh Laundry & Cafe",
   tagline: "Wash. Sip. Relax.",
   description:
-    "Gainesville's favorite laundromat and cafe — all under one roof. Self-service or drop-off wash & fold, plus fresh coffee, smoothies, and local baked goods. 6,000 sq ft of clean, community-driven comfort.",
+    "Gainesville's favorite laundromat and cafe — all under one roof. Self-service, drop-off wash & fold, or pickup & delivery, plus fresh coffee, smoothies, and local baked goods. 6,000 sq ft of clean, community-driven comfort.",
   location: "Gainesville, FL",
   address: "3830 SW 13th St, Gainesville, FL 32608",
   email: "hello@freshlaundryandcafe.com",
@@ -22,7 +22,7 @@ export const BRAND = {
   social: {
     instagram: "https://www.instagram.com/freshlaundryandcafe/",
     yelp: "https://www.yelp.com/biz/fresh-laundry-and-cafe-no-title",
-    snapchat: "https://www.snapchat.com/place/fresh-laundry-cafe/ecea49ae-5a22-11ee-9efb-9f5b70d71393",
+    facebook: "https://www.facebook.com/freshlaundryandcafe/",
   },
   stats: {
     rating: 4.6,
@@ -33,11 +33,17 @@ export const BRAND = {
 } as const;
 
 export const PRICING = {
-  baseFeeLabel: "Drop-off Fee",
-  baseFeeCents: 500, // $5.00
-  perLbRateLabel: "Per Pound",
-  perLbRateCents: 175, // $1.75/lb
-  minimumWeightLbs: 8,
+  // Drop-off wash & fold
+  washFoldPerLbCents: 125, // $1.25/lb
+  washFoldMinLbs: 15,
+  // Self-service washers (by machine size)
+  selfServiceWashers: [
+    { size: "Small", priceCents: 250 },
+    { size: "Medium", priceCents: 350 },
+    { size: "Large", priceCents: 450 },
+    { size: "Extra Large", priceCents: 600 },
+  ],
+  pickupDeliveryFeeCents: 500, // $5.00 delivery fee
   referralCreditCents: 500, // $5.00 credit for referrer and referee
 } as const;
 
@@ -91,14 +97,25 @@ export function formatCents(cents: number): string {
   return `$${(cents / 100).toFixed(2)}`;
 }
 
+/** @deprecated Use calculateWashFoldTotal. Kept for backend compat. */
 export function calculateOrderTotal(
   weightLbs: number,
   creditCents: number = 0
 ): { baseFee: number; weightCharge: number; credits: number; total: number } {
-  const baseFee = PRICING.baseFeeCents;
-  const weightCharge = Math.round(weightLbs * PRICING.perLbRateCents);
+  const baseFee = 0;
+  const weightCharge = Math.round(weightLbs * PRICING.washFoldPerLbCents);
   const subtotal = baseFee + weightCharge;
   const credits = Math.min(creditCents, subtotal);
   const total = subtotal - credits;
   return { baseFee, weightCharge, credits, total };
+}
+
+export function calculateWashFoldTotal(
+  weightLbs: number,
+  creditCents: number = 0
+): { weightCharge: number; credits: number; total: number } {
+  const weightCharge = Math.round(weightLbs * PRICING.washFoldPerLbCents);
+  const credits = Math.min(creditCents, weightCharge);
+  const total = weightCharge - credits;
+  return { weightCharge, credits, total };
 }

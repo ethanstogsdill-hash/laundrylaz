@@ -202,7 +202,7 @@ export default async function DashboardPage() {
               <Package className="size-12 mx-auto text-muted-foreground mb-3" />
               <CardTitle className="mb-2">No active orders</CardTitle>
               <CardDescription className="mb-4">
-                Schedule your first pickup and we will handle the rest!
+                Schedule your first laundry pickup to get started!
               </CardDescription>
               <Button asChild>
                 <Link href="/dashboard/schedule">Schedule Pickup</Link>

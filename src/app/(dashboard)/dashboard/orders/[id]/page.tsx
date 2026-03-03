@@ -8,6 +8,8 @@ import {
   CreditCard,
   CheckCircle2,
   Circle,
+  Clock,
+  Truck,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
@@ -101,6 +103,64 @@ export default async function OrderDetailPage({
           {statusLabel}
         </span>
       </div>
+
+      {/* Order Tracking */}
+      {statusKey !== "delivered" && statusKey !== "cancelled" && (
+        <Card className="border-brand-ocean/20 bg-brand-ocean/5">
+          <CardContent className="pt-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex size-10 items-center justify-center rounded-full bg-brand-ocean/10">
+                {statusKey === "out_for_delivery" ? (
+                  <Truck className="size-5 text-brand-ocean" />
+                ) : (
+                  <Clock className="size-5 text-brand-ocean" />
+                )}
+              </div>
+              <div>
+                <p className="font-semibold text-foreground">Order Tracking</p>
+                <p className="text-sm text-muted-foreground">
+                  {statusKey === "pending" && "Your order has been placed. We'll confirm it shortly."}
+                  {statusKey === "confirmed" && "Your order is confirmed and scheduled for pickup."}
+                  {statusKey === "picked_up" && "We've picked up your laundry. Washing will begin soon."}
+                  {statusKey === "washing" && "Your laundry is being washed and folded."}
+                  {statusKey === "ready" && "Your laundry is ready! Come pick it up or wait for delivery."}
+                  {statusKey === "out_for_delivery" && "Your laundry is on its way to you!"}
+                </p>
+              </div>
+            </div>
+
+            {/* Progress bar */}
+            <div className="space-y-2">
+              <div className="flex justify-between text-xs text-muted-foreground">
+                <span>Placed</span>
+                <span>Confirmed</span>
+                <span>Washing</span>
+                <span>Ready</span>
+                <span>Delivered</span>
+              </div>
+              <div className="h-2 rounded-full bg-muted overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-brand-ocean transition-all duration-500"
+                  style={{
+                    width:
+                      statusKey === "pending" ? "10%" :
+                      statusKey === "confirmed" ? "25%" :
+                      statusKey === "picked_up" ? "40%" :
+                      statusKey === "washing" ? "55%" :
+                      statusKey === "ready" ? "80%" :
+                      statusKey === "out_for_delivery" ? "90%" :
+                      "100%",
+                  }}
+                />
+              </div>
+            </div>
+
+            <p className="mt-3 text-xs text-muted-foreground">
+              Real-time updates will be available once connected with Fresh Laundry & Cafe&apos;s system.
+            </p>
+          </CardContent>
+        </Card>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left column */}

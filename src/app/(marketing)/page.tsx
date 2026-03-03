@@ -11,8 +11,8 @@ import {
   CheckCircle,
   Wifi,
   MapPin,
-  BookOpen,
   Car,
+  Truck,
   Instagram,
   ExternalLink,
 } from "lucide-react";
@@ -20,7 +20,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BRAND, PRICING, formatCents } from "@/lib/constants";
-import { PricingCalculator } from "@/components/features/pricing-calculator";
 
 const steps = [
   {
@@ -51,16 +50,16 @@ const features = [
       "Drop off your laundry and we'll wash, dry, and fold it for you. Just come back and pick it up!",
   },
   {
+    icon: Truck,
+    title: "Pickup & Delivery",
+    description:
+      "Schedule a pickup from your door. We wash, fold, and deliver it back — all from your dashboard.",
+  },
+  {
     icon: Coffee,
     title: "Full Cafe On-Site",
     description:
       "Fresh coffee, tea, smoothies, and local baked goods. Grab a bite while your clothes spin.",
-  },
-  {
-    icon: Clock,
-    title: "Open 7AM – 10PM",
-    description:
-      "Open 7 days a week with hours that fit any schedule. Self-service or drop-off.",
   },
   {
     icon: Leaf,
@@ -73,7 +72,7 @@ const features = [
 const amenities = [
   { icon: Wifi, label: "Free WiFi" },
   { icon: Coffee, label: "Fresh Cafe" },
-  { icon: BookOpen, label: "Kids Literacy Zone" },
+  { icon: Coffee, label: "Full Cafe" },
   { icon: Car, label: "Free Parking & RV Friendly" },
 ];
 
@@ -87,7 +86,7 @@ const testimonials = [
   {
     name: "David R.",
     context: "Local Resident",
-    text: "Nicest, newest and cleanest laundromat I've ever been to. The cafe has good drinks & snacks, staff is super friendly and attentive. Love the kids reading area too.",
+    text: "Nicest, newest and cleanest laundromat I've ever been to. The cafe has good drinks & snacks, staff is super friendly and attentive. Love this place!",
     rating: 5,
   },
   {
@@ -152,9 +151,8 @@ export default function LandingPage() {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
                 asChild
-                className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10"
+                className="w-full sm:w-auto bg-brand-ocean hover:bg-brand-ocean/90 text-white"
               >
                 <Link href="/pricing">See Pricing</Link>
               </Button>
@@ -220,9 +218,9 @@ export default function LandingPage() {
                 label: "Wash & Fold",
               },
               {
-                src: "https://images.unsplash.com/photo-1604881991720-f91add269bed?w=600&q=80",
-                alt: "Cozy reading nook",
-                label: "Kids Zone",
+                src: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80",
+                alt: "Fresh cafe coffee and pastries",
+                label: "Cafe",
               },
             ].map((photo) => (
               <div key={photo.label} className="group relative overflow-hidden rounded-xl">
@@ -248,10 +246,10 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              How Drop-off Works
+              How It Works
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Let us do the work — just drop it off and pick it up.
+              Drop it off or schedule a pickup — either way, we handle the rest.
             </p>
           </div>
 
@@ -276,59 +274,144 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ─── Pricing Section ─── */}
+      {/* ─── Two Options Section ─── */}
       <section className="bg-muted/30 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Simple, Transparent Pricing
+              Three Ways to Get Fresh
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              No subscriptions. No hidden fees. Just pay for what you wash.
+              Do it yourself and save, drop it off, or schedule a pickup — whatever works for you.
             </p>
           </div>
 
-          <div className="mt-12 grid items-start gap-8 lg:grid-cols-2">
-            <Card className="mx-auto w-full max-w-md border-brand-ocean/20">
-              <CardContent className="space-y-6 pt-2">
-                <div className="text-center">
+          <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-3">
+            {/* Option 1: Self-Service */}
+            <Card className="flex w-full flex-col border-brand-ocean/20">
+              <CardContent className="flex flex-1 flex-col space-y-6 pt-2">
+                <Badge className="w-fit bg-brand-ocean text-white">Most Affordable</Badge>
+                <h3 className="text-xl font-bold text-foreground">Self-Service</h3>
+                <p className="text-sm text-muted-foreground">
+                  Use our 100+ commercial-grade washers & dryers yourself. Card payment — no coins needed.
+                </p>
+
+                <div className="space-y-2 rounded-lg bg-muted/50 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Washers by size</p>
+                  {PRICING.selfServiceWashers.map((w) => (
+                    <div key={w.size} className="flex justify-between text-sm">
+                      <span>{w.size}</span>
+                      <span className="font-semibold">{formatCents(w.priceCents)}/load</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-3">
+                  {[
+                    "100+ washers & dryers",
+                    "Multiple machine sizes",
+                    "Card payment, no coins",
+                    "Free WiFi & cafe on-site",
+                  ].map((feature) => (
+                    <div key={feature} className="flex items-center gap-3 text-sm">
+                      <CheckCircle className="size-4 shrink-0 text-brand-ocean" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-auto pt-4">
+                  <Button asChild className="w-full bg-brand-ocean hover:bg-brand-ocean/90 text-white" size="lg">
+                    <Link href="/pricing">See Full Pricing</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Option 2: Drop-off Wash & Fold */}
+            <Card className="flex w-full flex-col border-brand-amber/30 shadow-lg">
+              <CardContent className="flex flex-1 flex-col space-y-6 pt-2">
+                <Badge className="w-fit bg-brand-amber text-white">We Do It For You</Badge>
+                <h3 className="text-xl font-bold text-foreground">Drop-off Wash & Fold</h3>
+                <p className="text-sm text-muted-foreground">
+                  Drop off your laundry and we wash, dry, and fold it. Come back and pick it up — usually within 24 hours.
+                </p>
+
+                <div className="text-center rounded-lg bg-muted/50 p-4">
                   <div className="text-4xl font-bold text-foreground">
-                    {formatCents(PRICING.perLbRateCents)}
-                    <span className="text-lg font-normal text-muted-foreground">
-                      /lb
-                    </span>
+                    {formatCents(PRICING.washFoldPerLbCents)}
+                    <span className="text-lg font-normal text-muted-foreground">/lb</span>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    + {formatCents(PRICING.baseFeeCents)} drop-off fee
+                    {PRICING.washFoldMinLbs} lb minimum
                   </p>
                 </div>
 
                 <div className="space-y-3">
                   {[
-                    "Drop-off wash & fold service",
-                    "Wash, dry & fold by hand",
-                    "Commercial-grade machines",
+                    "We wash, dry & fold for you",
+                    "Clothes sorted by color",
+                    "Eco-friendly detergent",
                     "24-hour turnaround",
-                    `${PRICING.minimumWeightLbs} lb minimum order`,
-                    `Refer a friend, both get ${formatCents(PRICING.referralCreditCents)} off`,
                   ].map((feature) => (
-                    <div
-                      key={feature}
-                      className="flex items-center gap-3 text-sm"
-                    >
+                    <div key={feature} className="flex items-center gap-3 text-sm">
                       <CheckCircle className="size-4 shrink-0 text-brand-amber" />
                       <span>{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <Button asChild className="w-full" size="lg">
-                  <Link href="/signup">Get Started</Link>
-                </Button>
+                <div className="mt-auto pt-4">
+                  <Button asChild className="w-full" size="lg">
+                    <Link href="/pricing">See Full Pricing</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
-            <PricingCalculator />
+            {/* Option 3: Pickup & Delivery */}
+            <Card className="flex w-full flex-col border-brand-ocean/30">
+              <CardContent className="flex flex-1 flex-col space-y-6 pt-2">
+                <Badge className="w-fit bg-brand-ocean text-white">Most Convenient</Badge>
+                <h3 className="text-xl font-bold text-foreground">Pickup & Delivery</h3>
+                <p className="text-sm text-muted-foreground">
+                  We come to you! Schedule a pickup, we wash & fold, and deliver it back to your door.
+                </p>
+
+                <div className="text-center rounded-lg bg-muted/50 p-4">
+                  <div className="text-4xl font-bold text-foreground">
+                    {formatCents(PRICING.washFoldPerLbCents)}
+                    <span className="text-lg font-normal text-muted-foreground">/lb</span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {PRICING.washFoldMinLbs} lb minimum + {formatCents(PRICING.pickupDeliveryFeeCents)} delivery fee
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  {[
+                    `${formatCents(PRICING.pickupDeliveryFeeCents)} delivery fee`,
+                    "Same wash & fold quality",
+                    "Schedule from your dashboard",
+                    "Track your order status",
+                  ].map((feature) => (
+                    <div key={feature} className="flex items-center gap-3 text-sm">
+                      <CheckCircle className="size-4 shrink-0 text-brand-ocean" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-auto pt-4">
+                  <Button asChild className="w-full" size="lg">
+                    <Link href="/signup">
+                      Schedule Pickup
+                      <ArrowRight className="size-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -441,7 +524,7 @@ export default function LandingPage() {
               Find Us
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Visit us in person — self-service or drop-off
+              Visit us in person or schedule a pickup
             </p>
           </div>
 
@@ -498,7 +581,7 @@ export default function LandingPage() {
                         <p className="font-medium">Services</p>
                         <p className="text-muted-foreground">
                           Self-service laundry, drop-off wash & fold,
-                          full cafe
+                          pickup & delivery, full cafe
                         </p>
                       </div>
                     </div>
@@ -530,13 +613,13 @@ export default function LandingPage() {
                       Yelp
                     </a>
                     <a
-                      href={BRAND.social.snapchat}
+                      href={BRAND.social.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm transition-colors hover:bg-muted"
                     >
-                      <ExternalLink className="size-4 text-yellow-500" />
-                      Snapchat
+                      <ExternalLink className="size-4 text-blue-600" />
+                      Facebook
                     </a>
                   </div>
                 </CardContent>
@@ -569,8 +652,8 @@ export default function LandingPage() {
             Ready to skip laundry day?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
-            Visit us at 3830 SW 13th St — do it yourself or drop it off and
-            we&apos;ll handle the rest. Fresh laundry and a great cup of coffee are waiting.
+            Visit us at 3830 SW 13th St or schedule a pickup — do it yourself,
+            drop it off, or let us come to you. Fresh laundry and a great cup of coffee are waiting.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
@@ -585,9 +668,8 @@ export default function LandingPage() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
               asChild
-              className="border-white/30 text-white hover:bg-white/10"
+              className="bg-brand-amber hover:bg-brand-amber/90 text-white"
             >
               <a
                 href={BRAND.googleMapsUrl}

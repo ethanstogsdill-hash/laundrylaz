@@ -8,21 +8,21 @@ import { Label } from "@/components/ui/label";
 import {
   PRICING,
   formatCents,
-  calculateOrderTotal,
+  calculateWashFoldTotal,
 } from "@/lib/constants";
 
 export function PricingCalculator() {
-  const [weight, setWeight] = useState<number>(PRICING.minimumWeightLbs);
+  const [weight, setWeight] = useState<number>(PRICING.washFoldMinLbs);
 
-  const effectiveWeight = Math.max(weight, PRICING.minimumWeightLbs);
-  const { baseFee, weightCharge, total } = calculateOrderTotal(effectiveWeight);
+  const effectiveWeight = Math.max(weight, PRICING.washFoldMinLbs);
+  const { weightCharge, total } = calculateWashFoldTotal(effectiveWeight);
 
   return (
     <Card className="mx-auto w-full max-w-md">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-lg">
           <Calculator className="size-5 text-brand-ocean" />
-          Price Calculator
+          Wash & Fold Calculator
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -32,17 +32,17 @@ export function PricingCalculator() {
           <Input
             id="weight"
             type="number"
-            min={PRICING.minimumWeightLbs}
+            min={PRICING.washFoldMinLbs}
             step={1}
             value={weight}
             onChange={(e) => {
               const val = parseInt(e.target.value, 10);
-              setWeight(isNaN(val) ? PRICING.minimumWeightLbs : val);
+              setWeight(isNaN(val) ? PRICING.washFoldMinLbs : val);
             }}
           />
-          {weight < PRICING.minimumWeightLbs && (
+          {weight < PRICING.washFoldMinLbs && (
             <p className="text-xs text-muted-foreground">
-              Minimum order is {PRICING.minimumWeightLbs} lbs
+              Minimum order is {PRICING.washFoldMinLbs} lbs
             </p>
           )}
         </div>
@@ -50,27 +50,23 @@ export function PricingCalculator() {
         {/* Slider */}
         <input
           type="range"
-          min={PRICING.minimumWeightLbs}
+          min={PRICING.washFoldMinLbs}
           max={50}
           step={1}
-          value={Math.max(weight, PRICING.minimumWeightLbs)}
+          value={Math.max(weight, PRICING.washFoldMinLbs)}
           onChange={(e) => setWeight(parseInt(e.target.value, 10))}
           className="w-full accent-brand-ocean"
         />
         <div className="flex justify-between text-xs text-muted-foreground">
-          <span>{PRICING.minimumWeightLbs} lbs</span>
+          <span>{PRICING.washFoldMinLbs} lbs</span>
           <span>50 lbs</span>
         </div>
 
         {/* Breakdown */}
         <div className="space-y-2 rounded-lg bg-muted/50 p-4">
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">{PRICING.baseFeeLabel}</span>
-            <span>{formatCents(baseFee)}</span>
-          </div>
-          <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">
-              {effectiveWeight} lbs x {formatCents(PRICING.perLbRateCents)}/lb
+              {effectiveWeight} lbs x {formatCents(PRICING.washFoldPerLbCents)}/lb
             </span>
             <span>{formatCents(weightCharge)}</span>
           </div>

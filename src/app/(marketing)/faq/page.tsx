@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BRAND, PRICING, formatCents } from "@/lib/constants";
 
+
 export const metadata: Metadata = {
   title: "FAQ",
 };
@@ -15,7 +16,7 @@ const faqs = [
   },
   {
     question: "How much does it cost?",
-    answer: `Our drop-off wash & fold pricing is simple: ${formatCents(PRICING.baseFeeCents)} drop-off fee plus ${formatCents(PRICING.perLbRateCents)} per pound, with a ${PRICING.minimumWeightLbs} lb minimum. That includes washing, drying, and folding. No hidden fees. Or save money and use our self-service machines!`,
+    answer: `We have three options! Self-service washers start at ${formatCents(PRICING.selfServiceWashers[0].priceCents)} per load. Or use our drop-off wash & fold or pickup & delivery service at ${formatCents(PRICING.washFoldPerLbCents)} per pound with a ${PRICING.washFoldMinLbs} lb minimum — we do everything for you. No hidden fees.`,
   },
   {
     question: "How long does turnaround take?",
@@ -26,6 +27,11 @@ const faqs = [
     question: "How does drop-off work?",
     answer:
       "Just bring your laundry to our location at 3830 SW 13th St during business hours. We'll weigh it, confirm the order, and take it from there. You can grab a coffee in our cafe while you wait, or come back later to pick it up.",
+  },
+  {
+    question: "Do you offer pickup and delivery?",
+    answer:
+      "Yes! You can schedule a pickup from your dashboard. We'll come to your address, pick up your laundry, wash and fold it, and deliver it back to your door — usually within 24 hours. Same great $1.25/lb rate plus a $5.00 delivery fee.",
   },
   {
     question: "What items can be washed?",

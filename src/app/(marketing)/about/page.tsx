@@ -7,7 +7,6 @@ import {
   Users,
   MapPin,
   ArrowRight,
-  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -37,10 +36,10 @@ const values = [
       "Our high-efficiency commercial machines clean better and dry faster while using less water and energy. Good laundry shouldn't cost the earth.",
   },
   {
-    icon: BookOpen,
-    title: "Giving Back",
+    icon: Coffee,
+    title: "Local Partnerships",
     description:
-      "We partner with the LaundryCares Foundation to provide a literacy zone where kids can read and play while families do laundry.",
+      "We partner with local businesses to bring you fresh coffee, smoothies, and baked goods — making laundry day something to look forward to.",
   },
 ];
 
@@ -75,16 +74,16 @@ export default function AboutPage() {
               What started as a dream to merge two passions — great coffee and
               clean laundry — has grown into a 6,000-square-foot community hub
               in the heart of Gainesville. We offer self-service washers and
-              dryers, professional drop-off wash & fold, and a
-              fully-stocked cafe with fresh coffee, tea, smoothies, and locally
-              sourced baked goods.
+              dryers, professional drop-off wash & fold, pickup & delivery,
+              and a fully-stocked cafe with fresh coffee, tea, smoothies, and
+              locally sourced baked goods.
             </p>
             <p>
               We&apos;re proud to serve UF students, families, and residents
               across Gainesville. With over 230 reviews and a 4.6-star rating,
               we&apos;re committed to being the best laundry experience in
               town — and now we&apos;re making it even easier with online
-              scheduling and drop-off wash & fold.
+              scheduling, drop-off wash & fold, and pickup & delivery.
             </p>
           </div>
         </div>
@@ -98,9 +97,9 @@ export default function AboutPage() {
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             To create a clean, comfortable space where doing laundry feels less
-            like a chore and more like a break. Whether you visit in person or
-            drop off your laundry, we want your clothes — and your day — to feel
-            fresh.
+            like a chore and more like a break. Whether you visit in person,
+            drop off your laundry, or schedule a pickup, we want your clothes —
+            and your day — to feel fresh.
           </p>
         </div>
       </section>
@@ -167,8 +166,8 @@ export default function AboutPage() {
             Come See Us
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Stop by for a coffee and a wash, or drop off your laundry and
-            let us handle the rest.
+            Stop by for a coffee and a wash, drop off your laundry,
+            or schedule a pickup — we&apos;ll handle the rest.
           </p>
           <Button asChild size="lg" className="mt-8">
             <Link href="/signup">
