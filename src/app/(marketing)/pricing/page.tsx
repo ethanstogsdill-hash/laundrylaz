@@ -158,19 +158,19 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                {/* Referral */}
-                <div className="rounded-lg border border-brand-amber/30 bg-brand-amber/5 p-4">
-                  <p className="text-sm font-semibold text-foreground">
-                    Referral Program
-                  </p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Refer a friend and you both get{" "}
-                    {formatCents(PRICING.referralCreditCents)} credit toward your
-                    next order.
-                  </p>
-                </div>
+                <div className="mt-auto space-y-4 pt-4">
+                  {/* Referral */}
+                  <div className="rounded-lg border border-brand-amber/30 bg-brand-amber/5 p-4">
+                    <p className="text-sm font-semibold text-foreground">
+                      Referral Program
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Refer a friend and you both get{" "}
+                      {formatCents(PRICING.referralCreditCents)} credit toward your
+                      next order.
+                    </p>
+                  </div>
 
-                <div className="mt-auto pt-4">
                   <Button asChild className="w-full" size="lg">
                     <Link href="/signup">
                       Get Started
@@ -222,19 +222,19 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                {/* Referral */}
-                <div className="rounded-lg border border-brand-ocean/30 bg-brand-ocean/5 p-4">
-                  <p className="text-sm font-semibold text-foreground">
-                    Referral Program
-                  </p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Refer a friend and you both get{" "}
-                    {formatCents(PRICING.referralCreditCents)} credit toward your
-                    next order.
-                  </p>
-                </div>
+                <div className="mt-auto space-y-4 pt-4">
+                  {/* Referral */}
+                  <div className="rounded-lg border border-brand-ocean/30 bg-brand-ocean/5 p-4">
+                    <p className="text-sm font-semibold text-foreground">
+                      Referral Program
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Refer a friend and you both get{" "}
+                      {formatCents(PRICING.referralCreditCents)} credit toward your
+                      next order.
+                    </p>
+                  </div>
 
-                <div className="mt-auto pt-4">
                   <Button asChild className="w-full" size="lg">
                     <Link href="/signup">
                       Schedule Pickup
